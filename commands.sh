@@ -9,7 +9,7 @@
 
 # Assigning networks Assigning networks to containers
 
-docker-create-network(){
+create-network(){
   # Network device configuration
   SUBNET="10.1.0.0/16"
   GATEWAY="10.1.0.1"
@@ -21,12 +21,16 @@ docker-create-network(){
     --subnet $SUBNET       \
     --gateway $GATEWAY     \
     --ip-range=$IP-RANGE   \
-    --driver=$DRIVER
-
+    --driver=$DRIVERs
 }
 
-# List current network setup
-docker-network-ls(){
+list_network(){
+  # List network devices
   docker network ls
+}
+
+delete-containers(){
+  # List all container ID and RM's them
+  docker rm $(docker ps -a -q)
 }
 
