@@ -17,11 +17,12 @@ create-network(){
   DRIVER="bridge"
 
   # Create network device
-  docker network create    \
-    --subnet $SUBNET       \
-    --gateway $GATEWAY     \
-    --ip-range=$IP-RANGE   \
-    --driver=$DRIVERs
+  docker network create           \
+    --subnet $SUBNET              \
+    --gateway $GATEWAY            \
+    --ip-range=$IP-RANGE          \
+    --driver=$DRIVERs             \
+    --label=host5network bridge05 \
 }
 
 list_network(){
