@@ -9,7 +9,6 @@
 
 # Assigning networks Assigning networks to containers
 
-# Create network resource
 docker-create-network(){
   # Network device configuration
   SUBNET="10.1.0.0/16"
