@@ -25,7 +25,7 @@ create-network(){
     --label=host5network bridge05 \
 }
 
-list_network(){
+list-network(){
   # List network devices
   docker network ls
 }
