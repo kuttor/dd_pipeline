@@ -2,7 +2,6 @@
 
 # Author: Andrew Kuttor
 # E-mail: andrew.kuttor@dimensiondata.com
-# Entity: Dimension Data
 
 # =============================================================================
 # Dockerfile for creating ELK containers
