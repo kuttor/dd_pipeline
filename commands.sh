@@ -11,10 +11,19 @@
 
 # Create network resource
 docker-create-network(){
-  docker network create      \
-    --subnet 10.1.0.0/16     \
-    --gateway 10.1.0.1       \
-    --ip-range=10.1.4.0/24
+  # Network device configuration
+  SUBNET="10.1.0.0/16"
+  GATEWAY="10.1.0.1"
+  IP-RANGE="10.1.4.0/24"
+  DRIVER="bridge"
+
+  # Create network device
+  docker network create    \
+    --subnet $SUBNET       \
+    --gateway $GATEWAY     \
+    --ip-range=$IP-RANGE   \
+    --driver=$DRIVER
+
 }
 
 # List current network setup
