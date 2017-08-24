@@ -4,10 +4,8 @@
 # E-mail: andrew.kuttor@dimensiondata.com
 
 # =============================================================================
-# Dockerfile for creating ELK containers
-# =============================================================================
-
 # Assigning networks Assigning networks to containers
+# =============================================================================
 
 create-network(){
   # Network device configuration
@@ -17,12 +15,21 @@ create-network(){
   DRIVER="bridge"
 
   # Create network device
-  docker network create           \
-    --subnet $SUBNET              \
-    --gateway $GATEWAY            \
-    --ip-range=$IP-RANGE          \
-    --driver=$DRIVERs             \
-    --label=host5network bridge05 \
+  docker network create \
+    --subnet $SUBNET \
+    --gateway $GATEWAY \
+    --ip-range=$IP-RANGE \
+    --driver=$DRIVERs \
+    --label=host5network bridge05
+}
+
+static-ip(){
+  # Create network device and assign it a static ip-address 
+  docker run -it \
+    --name testing02 \
+    --ip 10.1.4.100 \
+    centos:latest \
+    /bin/bash
 }
 
 list-network(){
@@ -34,4 +41,3 @@ delete-containers(){
   # List all container ID and RM's them
   docker rm $(docker ps -a -q)
 }
-
